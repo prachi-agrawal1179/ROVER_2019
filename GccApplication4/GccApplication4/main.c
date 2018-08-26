@@ -25,7 +25,7 @@ int z,w;
 void SPI_MasterInit(void)
 {
 	SPCR=0b01111101;
-	DDR_SPI= (1<<DD_MOSI)|(1<<DD_SCK);
+	DDR_SPI= (1<<DD_MOSI)|(1<<DD_SCK)|(1<<DD_SS);
 	DDR_SPI&=~(1<<DD_MISO);
 	SPCR=(1<<SPE)|(1<<MSTR)|(1<<SPR0);
 	
@@ -83,53 +83,54 @@ int main()
 								
 				if(z<127)
 				{
-					
-					PORTD|=(1<<PIND0);
+					USART_TransmitNumber(z,0);
+					/*PORTD|=(1<<PIND0);
 					PORTD&=~(1<<PIND1);
 					PORTD|=(1<<PIND2);
-					PORTD&=~(1<<PIND3);
+					PORTD&=~(1<<PIND3);*/
 				}
 				else if (z>127)
 				{
-					PORTD|=(1<<PIND1);
+					USART_TransmitNumber(z,0);
+					/*PORTD|=(1<<PIND1);
 					PORTD&=~(1<<PIND0);
 					PORTD|=(1<<PIND3);
-					PORTD&=~(1<<PIND2);
+					PORTD&=~(1<<PIND2);*/
 				}
 				else if (z==127)
 				{
-					
-					PORTD&=~(1<<PIND0);
+					USART_TransmitNumber(z,0);
+					/*PORTD&=~(1<<PIND0);
 					PORTD&=~(1<<PIND1);
 					PORTD&=~(1<<PIND2);
-					PORTD&=~(1<<PIND3);
+					PORTD&=~(1<<PIND3);*/
 					
 					
 				}
 				
 				if(w<127)
 				{
-					
-					PORTD|=(1<<PIND4);
+					USART_TransmitNumber(w,0);
+					/*PORTD|=(1<<PIND4);
 					PORTD&=~(1<<PIND5);
 					PORTD|=(1<<PIND6);
-					PORTD&=~(1<<PIND7);
+					PORTD&=~(1<<PIND7);*/
 				}
 				else if (w>127)
 				{
-					
-					PORTD|=(1<<PIND5);
+					USART_TransmitNumber(w,0);
+					/*PORTD|=(1<<PIND5);
 					PORTD&=~(1<<PIND4);
 					PORTD|=(1<<PIND7);
-					PORTD&=~(1<<PIND6);
+					PORTD&=~(1<<PIND6);*/
 				}
 				else if (w==127)
 				{
-					
-					PORTD&=~(1<<PIND4);
+					USART_TransmitNumber(w,0);
+					/*PORTD&=~(1<<PIND4);
 					PORTD&=~(1<<PIND5);
 					PORTD&=~(1<<PIND6);
-					PORTD&=~(1<<PIND7);
+					PORTD&=~(1<<PIND7);*/
 					
 					
 				}
